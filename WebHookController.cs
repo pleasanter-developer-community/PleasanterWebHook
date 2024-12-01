@@ -15,8 +15,12 @@ public class WebHookController : ControllerBase
     {
         var dir = Path.GetDirectoryName(typeof(WebHookController).Assembly.Location)
             ?? AppContext.BaseDirectory;
+
+        var netcoreEnv = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")?.ToLower() ?? "";
         var config = new ConfigurationBuilder()
-            .AddJsonFile(Path.Combine(dir, "webhooksettings.json")).Build();
+            .AddJsonFile(Path.Combine(dir, "webhooksettings.json"))
+            .AddJsonFile(Path.Combine(dir, $"webhooksettings.{netcoreEnv}.json"))
+            .Build();
         var settings = config.Get<WebhookSettings>()
             ?? new WebhookSettings();
         var lineClient = LineMessagingClient.Create(new HttpClient(), settings.LineChannelAccessToken);
@@ -35,11 +39,7 @@ public class WebHookController : ControllerBase
         var reader = new StreamReader(Request.Body);
         var body = await reader.ReadToEndAsync();
         var xLineSignature = Request.Headers["x-line-signature"];
-        try
-        {
-            await _app.RunAsync(xLineSignature, body);
-        }
-        catch { }
+        await _app.RunAsync(xLineSignature, body);
         return Ok();
     }
 }
