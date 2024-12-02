@@ -15,12 +15,19 @@ public class WebHookController : ControllerBase
     {
         var dir = Path.GetDirectoryName(typeof(WebHookController).Assembly.Location)
             ?? AppContext.BaseDirectory;
-
         var netcoreEnv = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")?.ToLower() ?? "";
-        var config = new ConfigurationBuilder()
-            .AddJsonFile(Path.Combine(dir, "webhooksettings.json"))
-            .AddJsonFile(Path.Combine(dir, $"webhooksettings.{netcoreEnv}.json"))
-            .Build();
+        var settingsPath = Path.Combine(dir, "webhooksettings.json");
+        var devSettingsPath = Path.Combine(dir, $"webhooksettings.{netcoreEnv}.json");
+        var confBuilder = new ConfigurationBuilder();
+        if (System.IO.File.Exists(settingsPath))
+        {
+            confBuilder.AddJsonFile(settingsPath);
+        }
+        if (System.IO.File.Exists(devSettingsPath))
+        {
+            confBuilder.AddJsonFile(devSettingsPath);
+        }
+        var config = confBuilder.Build();
         var settings = config.Get<WebhookSettings>()
             ?? new WebhookSettings();
         var lineClient = LineMessagingClient.Create(new HttpClient(), settings.LineChannelAccessToken);
