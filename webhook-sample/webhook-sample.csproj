@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LineDC.Messaging" Version="1.2.1" />
+	  <PackageReference Include="LineDC.Messaging" Version="1.2.1" />
   </ItemGroup>
 
   <ItemGroup>

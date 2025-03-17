@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35521.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PleasanterWebHook", "PleasanterWebHook.csproj", "{CF2EE93C-5698-4CD0-A9E1-FD0BDE2A652F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "line-bot-with-azure-ai", "line-bot-with-azure-ai\line-bot-with-azure-ai.csproj", "{C5117ADC-8686-23B2-D6E1-7ED3227142CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webhook-sample", "webhook-sample\webhook-sample.csproj", "{3AABEB8D-7A17-9AA7-51F5-133DB1715C9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CF2EE93C-5698-4CD0-A9E1-FD0BDE2A652F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF2EE93C-5698-4CD0-A9E1-FD0BDE2A652F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF2EE93C-5698-4CD0-A9E1-FD0BDE2A652F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF2EE93C-5698-4CD0-A9E1-FD0BDE2A652F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5117ADC-8686-23B2-D6E1-7ED3227142CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5117ADC-8686-23B2-D6E1-7ED3227142CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5117ADC-8686-23B2-D6E1-7ED3227142CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5117ADC-8686-23B2-D6E1-7ED3227142CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AABEB8D-7A17-9AA7-51F5-133DB1715C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AABEB8D-7A17-9AA7-51F5-133DB1715C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AABEB8D-7A17-9AA7-51F5-133DB1715C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AABEB8D-7A17-9AA7-51F5-133DB1715C9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

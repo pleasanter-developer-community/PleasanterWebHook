@@ -2,9 +2,11 @@
 using LineDC.Messaging.Webhooks;
 using LineDC.Messaging.Webhooks.Events;
 
-namespace PleasanterWebHook;
+namespace PleasanterWebHook.Model;
 
-class LineBotApp : WebhookApplication
+
+
+public class LineBotApp : WebhookApplication
 {
     public LineBotApp(ILineMessagingClient client, string channelSecret)
         : base(client, channelSecret)
@@ -15,17 +17,17 @@ class LineBotApp : WebhookApplication
         await Client.ReplyMessageAsync(ev.ReplyToken, ev.Source.Type switch
         {
             EventSourceType.Group => $$"""
-            ようこそ！このグループのIDはこちらです。
-            Group ID: {{ev.Source.Id}}
-            """,
+                ようこそ！このグループのIDはこちらです。
+                Group ID: {{ev.Source.Id}}
+                """,
             EventSourceType.Room => $$"""
-            ようこそ！このトークルームのIDはこちらです。
-            Room ID: {{ev.Source.Id}}
-            """,
+                ようこそ！このトークルームのIDはこちらです。
+                Room ID: {{ev.Source.Id}}
+                """,
             _ => $$"""
-            ようこそ！あなたのIDはこちらです。
-            User ID: {{ev.Source.UserId}}
-            """
+                ようこそ！あなたのIDはこちらです。
+                User ID: {{ev.Source.UserId}}
+                """
         });
     }
 

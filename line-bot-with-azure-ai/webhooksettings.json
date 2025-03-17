@@ -1,0 +1,12 @@
+﻿{
+  "LineChannelSecret": "",
+  "LineChannelAccessToken": "",
+  "AzureOpenAIEndpoint": "{Azure OpenAI のエンドポイント}",
+  "AzureOpenAIKey": "{Azure OpenAIのキー}",
+  "AzureSearchEndpoint": "{Azure AI Searchのエンドポイント}",
+  "AzureSearchKey": "{Azure AI Searchのキー}",
+  "ChatDeployment": "gpt-4o-mini",
+  "VectorStoreIndexName": "{AI Searchのインデックス名}",
+  "EmbeddingDeployment": "text-embedding-ada-002",
+  "ServiceUrl": "{検索結果のLink生成に使う、プリザンターのURL}"
+}
